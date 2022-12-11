@@ -1,7 +1,12 @@
-import type { NextPage } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
+import { PostData } from "../src/domain/posts/post";
 
-const Home: NextPage = () => {
+export type HomeProps = {
+    posts: PostData[];
+};
+
+export default function Home({ posts }: HomeProps) {
     return (
         <>
             <Head>
@@ -13,11 +18,36 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div>
+            <main>
                 <h2>Next Blog with Strapi</h2>
-            </div>
+
+                {posts.map((post) => {
+                    return (
+                        <div key={post.id}>
+                            <p>{post.attributes.title}</p>
+                            <br />
+                            <hr />
+                        </div>
+                    );
+                })}
+            </main>
         </>
     );
-};
+}
 
-export default Home;
+export const getStaticProps: GetStaticProps<{
+    posts: HomeProps[];
+}> = async () => {
+    const res = await fetch(
+        "https://strapi-production-0af2.up.railway.app/api/posts?populate=%2A"
+    );
+
+    const data = await res.json().then(({ data }) => data);
+    const posts: HomeProps[] = data;
+
+    return {
+        props: {
+            posts,
+        },
+    };
+};
