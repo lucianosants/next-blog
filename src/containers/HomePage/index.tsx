@@ -1,3 +1,4 @@
+import Header from '../../components/Header';
 import { PostData } from '../../domain/posts/post';
 import { StyledContainer } from './styles';
 
@@ -6,19 +7,29 @@ type HomeProps = {
 };
 
 export default function HomePage({ posts }: HomeProps) {
-    return (
-        <StyledContainer>
-            <h2>Next Blog with Strapi</h2>
+    // console.log(posts);
 
-            {posts.map((post) => {
-                return (
-                    <div key={post.id}>
-                        <p>{post.attributes.title}</p>
-                        <br />
-                        <hr />
-                    </div>
-                );
-            })}
-        </StyledContainer>
+    return (
+        <>
+            <Header />
+            <StyledContainer>
+                <h2>Next Blog with Strapi</h2>
+
+                {posts.map((post) => {
+                    const thumbnail =
+                        post.attributes.cover.data.attributes.formats.thumbnail
+                            .url;
+
+                    return (
+                        <div key={post.id}>
+                            <img src={thumbnail} alt="" />
+                            <p>{post.attributes.slug}</p>
+                            <br />
+                            <hr />
+                        </div>
+                    );
+                })}
+            </StyledContainer>
+        </>
     );
 }
