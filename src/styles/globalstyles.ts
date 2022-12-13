@@ -29,8 +29,6 @@ export const GlobalStyles = createGlobalStyle`
         --text-medium: 1.6rem;
         --text-large: 1.8rem;
         --text-xl: 2.4rem;
-
-
     }
 
     html {
@@ -54,6 +52,16 @@ export const GlobalStyles = createGlobalStyle`
 
     body * {
         font-family: sans-serif;
+    }
+
+    a {
+        color: ${({ theme }) => theme.colors.secondary_300};
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: ${({ theme }) => theme.colors.secondary_200};
+        }
     }
 
     #__next {
