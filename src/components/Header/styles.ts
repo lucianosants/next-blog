@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
     padding: 1.8rem;
-    background-color: ${({ theme }) => theme.colors.primary_100};
+    background-color: ${({ theme }) => theme.colors.primary_200};
     border-bottom: 1px solid ${({ theme }) => theme.colors.secondary_100};
 
     nav {

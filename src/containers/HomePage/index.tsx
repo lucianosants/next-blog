@@ -1,4 +1,5 @@
 import Header from '../../components/Header';
+import { MainContainer } from '../../components/MainContainer';
 import { PostData } from '../../domain/posts/post';
 import { StyledContainer } from './styles';
 
@@ -12,24 +13,24 @@ export default function HomePage({ posts }: HomeProps) {
     return (
         <>
             <Header />
-            <StyledContainer>
-                <h2>Next Blog with Strapi</h2>
+            <MainContainer>
+                <StyledContainer>
+                    {posts.map((post) => {
+                        const thumbnail =
+                            post.attributes.cover.data.attributes.formats
+                                .thumbnail.url;
 
-                {posts.map((post) => {
-                    const thumbnail =
-                        post.attributes.cover.data.attributes.formats.thumbnail
-                            .url;
-
-                    return (
-                        <div key={post.id}>
-                            <img src={thumbnail} alt="" />
-                            <p>{post.attributes.slug}</p>
-                            <br />
-                            <hr />
-                        </div>
-                    );
-                })}
-            </StyledContainer>
+                        return (
+                            <div key={post.id}>
+                                <img src={thumbnail} alt="" />
+                                <p>{post.attributes.slug}</p>
+                                <br />
+                                <hr />
+                            </div>
+                        );
+                    })}
+                </StyledContainer>
+            </MainContainer>
         </>
     );
 }

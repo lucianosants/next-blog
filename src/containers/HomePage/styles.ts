@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const StyledContainer = styled.div`
-    /* background-color: #fadefa; */
-`;
+const StyledContainer = styled.div``;
 
 export { StyledContainer };
