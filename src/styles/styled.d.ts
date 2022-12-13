@@ -1,6 +1,6 @@
-import "styled-components";
+import 'styled-components';
 
-declare module "styled-components" {
+declare module 'styled-components' {
     export interface DefaultTheme {
         colors: {
             primary_100: string;
@@ -10,6 +10,19 @@ declare module "styled-components" {
             secondary_100: string;
             secondary_200: string;
             secondary_300: string;
+        };
+        spacings: {
+            small: string;
+            medium: string;
+            large: string;
+        };
+        font: {
+            sizes: {
+                small: string;
+                medium: string;
+                large: string;
+                xl: string;
+            };
         };
     }
 }

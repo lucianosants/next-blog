@@ -13,7 +13,6 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 62.5%;
 
         --brand: #BB8AFF;
-        // dark theme
         --primary-100: #030303;
         --primary-200: #1A1A1B;
         --primary-300: #272729;
@@ -21,6 +20,17 @@ export const GlobalStyles = createGlobalStyle`
         --secondary-100: #808384;
         --secondary-200: #777A7C;
         --secondary-300: #D7DADC;
+
+        --small: 1.6rem;
+        --medium: 3.2rem;
+        --large: 4.8rem;
+
+        --text-small: 1.2rem;
+        --text-medium: 1.6rem;
+        --text-large: 1.8rem;
+        --text-xl: 2.4rem;
+
+
     }
 
     html {
@@ -36,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${({ theme }) => theme.colors.primary_100};
         color: ${({ theme }) => theme.colors.secondary_300};
-        font-size: 1.6rem;
+        font-size: ${({ theme }) => theme.font.sizes.medium};
         display: flex;
         flex: 1;
         overflow-x: hidden;
