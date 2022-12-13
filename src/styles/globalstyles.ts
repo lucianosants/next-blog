@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -39,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1.6rem;
         display: flex;
         flex: 1;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     body * {
@@ -47,10 +47,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     #__next {
-        /* width: 100%; */
         flex: 1;
         flex-wrap: nowrap;
-        overflow: hidden;
         justify-content: flex-start;
         align-content: flex-start;
         flex-shrink: 0;
