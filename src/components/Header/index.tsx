@@ -12,7 +12,7 @@ export default function Header() {
                 </Link>
 
                 <Link
-                    href="https://github.com/lucianosants/"
+                    href="https://github.com/lucianosants/next-blog"
                     target="_blank"
                     aria-label="link to project code"
                     title="Source project"
