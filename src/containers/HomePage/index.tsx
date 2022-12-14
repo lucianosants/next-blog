@@ -1,5 +1,6 @@
 import Header from '../../components/Header';
 import { MainContainer } from '../../components/MainContainer';
+import PostCard from '../../components/PostCard';
 import { PostData } from '../../domain/posts/post';
 import { StyledContainer } from './styles';
 
@@ -21,12 +22,16 @@ export default function HomePage({ posts }: HomeProps) {
                                 .thumbnail.url;
 
                         return (
-                            <div key={post.id}>
-                                <img src={thumbnail} alt="" />
-                                <p>{post.attributes.slug}</p>
-                                <br />
-                                <hr />
-                            </div>
+                            <PostCard
+                                key={post.id}
+                                title={post.attributes.title}
+                                slug={post.attributes.slug}
+                                cover={thumbnail}
+                                createdBy={
+                                    post.attributes.author.data.attributes.name
+                                }
+                                content={post.attributes.content}
+                            />
                         );
                     })}
                 </StyledContainer>
