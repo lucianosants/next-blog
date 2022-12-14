@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledHeader = styled.header`
     padding: 1.8rem;
-    background-color: ${({ theme }) => theme.colors.primary_200};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.secondary_100};
+    ${({ theme }) => css`
+        background-color: ${({ theme }) => theme.colors.primary_200};
+        border-bottom: 1px solid ${theme.colors.primary_400};
+    `}
 
     nav {
         display: flex;
