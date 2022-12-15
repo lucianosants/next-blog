@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
+import { Post } from '../../src/containers/Post';
 import { getAllPosts } from '../../src/data/posts/get-all-posts';
 import { getPost } from '../../src/data/posts/get-post';
 import { PostData } from '../../src/domain/posts/post';
@@ -13,8 +14,7 @@ export interface IParams extends ParsedUrlQuery {
 }
 
 export default function DynamicPosts({ post }: DynamicPostProps) {
-    // console.log(post);
-    return <div>titulo: {post.attributes.title}</div>;
+    return <Post post={post} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
