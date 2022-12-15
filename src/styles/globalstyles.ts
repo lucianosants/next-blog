@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
         --text-small: 1.2rem;
         --text-medium: 1.6rem;
         --text-large: 1.8rem;
-        --text-xl: 2.4rem;
+        --text-xl: 4.2rem;
     }
 
     html {
