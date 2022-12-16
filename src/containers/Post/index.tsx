@@ -1,6 +1,8 @@
 import Heading from '../../components/Heading';
 import { MainContainer } from '../../components/MainContainer';
+import PostContainer from '../../components/PostContainer';
 import PostCover from '../../components/PostCover';
+import PostDetails from '../../components/PostDetails';
 import { PostData } from '../../domain/posts/post';
 
 interface IPostProps {
@@ -8,7 +10,7 @@ interface IPostProps {
 }
 
 export const Post = ({ post }: IPostProps) => {
-    console.log(post);
+    // console.log(post);
     return (
         <>
             <MainContainer>
@@ -19,7 +21,12 @@ export const Post = ({ post }: IPostProps) => {
                     }
                     alt={`Image from post ${post?.attributes.title}`}
                 />
-                <div dangerouslySetInnerHTML={{ __html: post?.content }} />
+                <PostDetails
+                    date={post?.attributes.publishedAt}
+                    author={post?.attributes.author.data.attributes.name}
+                    category={post?.attributes.category.data.attributes.name}
+                />
+                <PostContainer content={post?.content} />
             </MainContainer>
         </>
     );
