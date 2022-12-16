@@ -7,7 +7,7 @@ interface ICommentsProps {
 }
 
 export default function Comments({ slug, title }: ICommentsProps) {
-    const url = process.env.API_MAIN;
+    const url = 'https://blog-nextjs-strapi.netlify.app';
 
     return (
         <StyledComments>
