@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const StyledFooter = styled.header`
+const StyledFooter = styled.footer`
     ${({ theme }) => css`
         padding: ${theme.spacings.medium};
         border-top: 1px solid ${theme.colors.primary_400};
