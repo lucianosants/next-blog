@@ -7,7 +7,7 @@ interface ICommentsProps {
 }
 
 export default function Comments({ slug, title }: ICommentsProps) {
-    const url = process.env.SITE_URL;
+    const url = process.env.API_MAIN;
 
     return (
         <StyledComments>
