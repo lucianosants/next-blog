@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
 import Heading from '../../components/Heading';
 import { MainContainer } from '../../components/MainContainer';
 import PostCover from '../../components/PostCover';
@@ -14,7 +11,6 @@ export const Post = ({ post }: IPostProps) => {
     console.log(post);
     return (
         <>
-            <Header />
             <MainContainer>
                 <Heading>{post?.attributes.title}</Heading>
                 <PostCover
@@ -25,7 +21,6 @@ export const Post = ({ post }: IPostProps) => {
                 />
                 <div dangerouslySetInnerHTML={{ __html: post?.content }} />
             </MainContainer>
-            <Footer />
         </>
     );
 };

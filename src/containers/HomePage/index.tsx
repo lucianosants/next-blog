@@ -1,5 +1,3 @@
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
 import { MainContainer } from '../../components/MainContainer';
 import PostCard from '../../components/PostCard';
 import { PostData } from '../../domain/posts/post';
@@ -14,7 +12,6 @@ export default function HomePage({ posts }: HomeProps) {
 
     return (
         <>
-            <Header />
             <MainContainer>
                 <StyledContainer>
                     {posts.map((post) => {
@@ -37,7 +34,6 @@ export default function HomePage({ posts }: HomeProps) {
                     })}
                 </StyledContainer>
             </MainContainer>
-            <Footer />
         </>
     );
 }

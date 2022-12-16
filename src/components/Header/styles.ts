@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
         margin: 0 auto;
 
         img {
-            width: 110px;
+            width: 11rem;
 
             &:hover {
                 opacity: 0.9;
