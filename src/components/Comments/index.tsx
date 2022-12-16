@@ -7,12 +7,14 @@ interface ICommentsProps {
 }
 
 export default function Comments({ slug, title }: ICommentsProps) {
+    const url = process.env.SITE_URL;
+
     return (
         <StyledComments>
             <DiscussionEmbed
                 shortname="blog-strapi"
                 config={{
-                    url: `/post/${slug}`,
+                    url: `${url}/post/${slug}`,
                     identifier: slug,
                     title: title,
                     language: 'pt_BR',
