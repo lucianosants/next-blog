@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DateDetail from '../DateDetail';
 import { StyledPostDetails } from './styled';
 
@@ -14,7 +15,10 @@ export default function PostDetails({ date, author, category }: IPostDetails) {
             <em>
                 <DateDetail date={date} />
             </em>{' '}
-            por <em>{author}</em> | <em>{category}</em>
+            por <em>{author}</em> |{' '}
+            <Link href={`/categories/${category}`}>
+                <em>{category}</em>
+            </Link>
         </StyledPostDetails>
     );
 }

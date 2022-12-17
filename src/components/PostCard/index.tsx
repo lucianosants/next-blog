@@ -26,12 +26,14 @@ export default function PostCard({
     return (
         <StyledPostCard>
             <StyledPostHeading>
-                <StyledPostedBy>- {createdBy}</StyledPostedBy>
+                {createdBy && <StyledPostedBy>- {createdBy}</StyledPostedBy>}
+
                 <StyledPostTitle>
                     <Link href="/post/[slug]" as={`/post/${slug}`}>
                         {title}
                     </Link>
                 </StyledPostTitle>
+
                 <StyledPostContent>
                     <Link href="/post/[slug]" as={`/post/${slug}`}>
                         {content}
@@ -39,11 +41,13 @@ export default function PostCard({
                 </StyledPostContent>
             </StyledPostHeading>
 
-            <StyledPostCover>
-                <Link href="/post/[slug]" as={`/post/${slug}`}>
-                    <img src={cover} alt={title} />
-                </Link>
-            </StyledPostCover>
+            {cover && (
+                <StyledPostCover>
+                    <Link href="/post/[slug]" as={`/post/${slug}`}>
+                        <img src={cover} alt={title} />
+                    </Link>
+                </StyledPostCover>
+            )}
         </StyledPostCard>
     );
 }

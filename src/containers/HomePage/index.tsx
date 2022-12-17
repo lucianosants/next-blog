@@ -2,15 +2,14 @@ import Head from 'next/head';
 import { MainContainer } from '../../components/MainContainer';
 import PostCard from '../../components/PostCard';
 import { PostData } from '../../domain/posts/post';
-import { StyledContainer } from './styles';
+import { StyledCategory, StyledContainer } from './styles';
 
 type HomeProps = {
     posts: PostData[];
+    category?: string;
 };
 
-export default function HomePage({ posts }: HomeProps) {
-    // console.log(posts);
-
+export default function HomePage({ posts, category }: HomeProps) {
     return (
         <>
             <Head>
@@ -21,11 +20,18 @@ export default function HomePage({ posts }: HomeProps) {
                 />
             </Head>
 
+            {category && (
+                <StyledCategory>
+                    <p>
+                        Categoria: <strong>{category}</strong>
+                    </p>
+                </StyledCategory>
+            )}
             <MainContainer>
                 <StyledContainer>
                     {posts.map((post) => {
                         const thumbnail =
-                            post.attributes.cover.data.attributes.formats
+                            post.attributes.cover?.data.attributes.formats
                                 .thumbnail.url;
 
                         return (
@@ -35,7 +41,7 @@ export default function HomePage({ posts }: HomeProps) {
                                 slug={post.attributes.slug}
                                 cover={thumbnail}
                                 createdBy={
-                                    post.attributes.author.data.attributes.name
+                                    post.attributes.author?.data.attributes.name
                                 }
                                 content={post.attributes.content}
                             />

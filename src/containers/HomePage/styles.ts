@@ -20,4 +20,21 @@ const StyledContainer = styled.section`
     }
 `;
 
-export { StyledContainer };
+const StyledCategory = styled.div`
+    text-align: center;
+
+    p {
+        ${({ theme }) => css`
+            margin: ${theme.spacings.medium} auto;
+
+            strong {
+                color: var(--brand);
+                text-transform: uppercase;
+                text-decoration: 1px underline solid
+                    ${theme.colors.secondary_300};
+            }
+        `}
+    }
+`;
+
+export { StyledContainer, StyledCategory };
