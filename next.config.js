@@ -5,6 +5,7 @@ const nextConfig = {
     compiler: {
         styledComponents: true,
     },
+    target: "serverless",
 };
 
 module.exports = nextConfig;
