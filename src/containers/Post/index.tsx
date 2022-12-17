@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Comments from '../../components/Comments';
 import Heading from '../../components/Heading';
 import { MainContainer } from '../../components/MainContainer';
@@ -14,6 +15,10 @@ export const Post = ({ post }: IPostProps) => {
     // console.log(post);
     return (
         <>
+            <Head>
+                <title>{post?.attributes.title} - Next Blog</title>
+                <meta name="description" content={post?.attributes.slug} />
+            </Head>
             <MainContainer>
                 <Heading>{post?.attributes.title}</Heading>
                 <PostCover

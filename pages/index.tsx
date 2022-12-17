@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 
 import { getAllPosts } from '../src/data/posts/get-all-posts';
 import { PostData } from '../src/domain/posts/post';
@@ -13,10 +12,6 @@ type HomeProps = {
 export default function Home({ posts }: HomeProps) {
     return (
         <>
-            <Head>
-                <title>Next Blog</title>
-            </Head>
-
             <HomePage posts={posts} />
         </>
     );
