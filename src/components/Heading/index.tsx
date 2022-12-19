@@ -1,6 +1,6 @@
 import { StyledHeading } from './styles';
 
-interface IHeadingProps {
+export interface IHeadingProps {
     children: React.ReactNode;
 }
 
