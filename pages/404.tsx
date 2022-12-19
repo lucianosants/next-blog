@@ -5,7 +5,6 @@ const Styled404 = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
     height: 100%;
     gap: 7rem;
     img {
