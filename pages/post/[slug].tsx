@@ -1,4 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Error from 'next/error';
+import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { Post } from '../../src/containers/Post';
 import { getAllPosts } from '../../src/data/posts/get-all-posts';
@@ -14,6 +16,16 @@ export interface IParams extends ParsedUrlQuery {
 }
 
 export default function DynamicPosts({ post }: DynamicPostProps) {
+    const router = useRouter();
+
+    if (router.isFallback) {
+        return <div>Página ainda carregando, por favor aguarde...</div>;
+    }
+
+    if (!post) {
+        return <Error statusCode={404} />;
+    }
+
     return <Post post={post} />;
 }
 
@@ -39,5 +51,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     return {
         props: { post: posts[0] },
+        revalidate: 5,
     };
 };

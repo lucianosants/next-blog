@@ -13,6 +13,9 @@ export const getPost = async (slug: string | string[]): Promise<PostData[]> => {
     // https://strapi-production-0af2.up.railway.app/api/posts ?filters[slug]= my-slug &populate=%2A
 
     const jsonPosts = await fetchJson<PostData[]>(url);
+
+    if (!jsonPosts.length) return jsonPosts;
+
     const content = await markdownToHtml(jsonPosts[0].attributes.content);
     const finalContent = { ...jsonPosts[0], content };
 
